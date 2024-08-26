@@ -1,9 +1,9 @@
-# IOD-project_1
-# FILM GENRE, BEST BET - Exploratory Data Analysis
-## MAY 2024
+# IOD-project_2
+# FOOD ACCESS FOR SENIORS - EDA & Machine Learning Models
+## JUNE 2024
 
 ## Project Overview
-This was the first of four projects designed to reinforce and demonstrate my learning as part of the Institute of Data, Data Science & AI program. I chose a fictional problem of two independent filmmakers (my instructors) who approached me with the business question of which genre would be the 'safest' bet for them to pursue when developing their first feature film.
+This was the second of four projects designed to reinforce and demonstrate my learning as part of the Institute of Data, Data Science & AI program. I chose to use a real-world dataset (USDA Food Access Research Atlas) to help a fictional Social Security Administration (SSA) allocate their funds in areas that would have the biggest impact for seniors experiencing food access issues. Further, I worked to create a machine learning model that would help SSA provide a tool to help local governments and municipalities allocate funds across their respective micro-areas.
 
 - **Datasets used are included in this repository**
 - **Link to project presentation media:** 
