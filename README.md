@@ -5,7 +5,7 @@
 ## Project Overview
 This was the second of four projects designed to reinforce and demonstrate my learning as part of the Institute of Data, Data Science & AI program. I chose to use a real-world dataset (USDA Food Access Research Atlas) to help a fictional Social Security Administration (SSA) allocate their funds in areas that would have the biggest impact for seniors experiencing food access issues. Further, I worked to create a machine learning model that would help SSA provide a tool to help local governments and municipalities allocate funds across their respective micro-areas.
 
-- **Datasets used are included in this repository**
+- **Link to Dataset used (2019 version, updated 04/27/21):** https://www.ers.usda.gov/data-products/food-access-research-atlas/download-the-data/
 - **Link to project presentation media:** 
 
 ### Objectives
