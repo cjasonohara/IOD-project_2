@@ -9,59 +9,49 @@ This was the second of four projects designed to reinforce and demonstrate my le
 - **Link to project presentation media:** 
 
 ### Objectives
-- **Stakeholder Problem**: State the business problem/question to be solved.
-- **Data Science Problem**: Translate the business problem into a Data Science problem.
+- **Stakeholder Problem/Question**: Work to understand, clarify, and simplify the business problem that needs to be solved.
+- **Data Science Problem**: Translate that business problem into a Data Science problem.
 - **Summary of Data Used**: Provide a summary of the data used and why.
-- **Visualization of Data Wrangling**: Demonstrate the process used to wrangle the data and the results.
+- **EDA and Data Visualization**: Explore, analyze and visualize the dataset in a way that either supports or does not support the business question.
 - **Visualization of Feature Engineering**: Demonstrate the process used to engineer the features and the results.
-- **Visualization of EDA**: Demonstrate the process used for EDA and show the results.
+- **Model Selection & Execution**: Select the best models to help provide predictive results.
 - **Summary of Results**: Summarize and show the results.
 - **Conclusion**: What were the lessons learned and what would the next steps be.
 
 ## Project Components
 
 ### Stakeholder Problem
-- **First Feature Film**
-- **Priorities**: Attract potential investors, appeal to wide audience, make money
-- **Business Question**: What genre would be the 'safest' to pursue?
+- **SSA - Granted additional funding to spend on increasing food resources in the US.**
+- **Priorities**: 1. Help as many, as quickly as possible. 2. Process must be repeatable for any locality.
+- **Business Question**: Where can we allocate funds that have the biggest impact for seniors to access additional food sources?
 
 ### Data Science Problem
-- **Film Ratings as Predictor**: Used as investor benchmark, moviegoers also use
-- **Is it a SMART Goal?**: Yes.
-- **Agreed to Keep it Simple**
+- **Access within .5 miles as Predictor**: Highest correlation between population and Owned Housing Units in a geographical area.
 
 ### Data Used
-- **kaggle.com, IMDb Top 1000 Films, csv**: Right-sized, easy to work with, free
-- **wikipedia.org, Unesco Institute for Statistics - Average Ticket Price**: Used US prices only; Where null, averaged between prior year & year following; Where null at start or end of data, used % increase/decrease for year(s) prior
+- **USDA Food Access Research Atlas**: https://www.ers.usda.gov/data-products/food-access-research-atlas/download-the-data/
 
-### Data Wrangling
-#### Kaggle Dataset
-- Converted to Pandas DF
-- Isolated main_genre
-- Dropped unnecessary columns and null-value rows
-- Retained columns needed for analysis
-- Nulls were in the 16% ('Meta_score') and 17% ('Gross') range, respectively. Typically too high to drop
-- Opted to replace 'Meta_score' nulls with mean and drop the 'Gross' nulls. Predictive Imputation for 'Gross' in the future?
+### Data Cleaning & EDA
+- Broke data table into three csv files for workability.
+- Leveraged the Look Up Table to understand the data, reference codes and to help guide through next steps.
+- Parsed data into different blocks (5, total) Block 1 = roll up data; Blocks 2-5 = Distance from a Supermarket, along with detail relating to that distance.
+- Worked through correlation and PCA analysis
+- Visualized using Folium and Google API for location lat/long conversion and mapping.
+- Refocused and continued to look for correlations with 'core' features like population and owned housing units.
+- Identified predictor in 'Seniors .5 miles away from Supermarket'
+- Converted target variable to binary representation to assist with modeling.
 
-#### UNESCO Dataset
-- Converted to Pandas DataFrame
-- Assumptions made before importing data
-- Used US average ticket sale price only
-
-### Feature Engineering
-- After merging the two datasets, created a new column to determine # of tickets sold
-- Used new column to help determine which genres would be most-likely to make money
-- Using the mean, looked for comparisons between 'Main_genre' and 'IMDb_Rating', 'Meta_Score', 'Tickets_Sold', 'No_of_Votes'
-- Compared against median to account for outliers, but it did not significantly change the outcome
-
-### EDA Visualization
-- Used Matplotlib to visualize the results
-- Opted for a simple bar chart as that was the most effective in demonstrating the outcomes
+### Model Selection and Results
+- Selected various models based on relevancy to type of data (census) used.
+- Started with Logistic Regression, Decision Tree, Random Forest and Dec Tree w/ Cross Validation - Perfect scores on last 3 - Overfitting?
+- Determined that the feature I used to develop the binary target was allowing the models to easily learn/predict. Removed and ran models again.
+- Scores better reflected in the results. Also added ensemble models.
+- Random Forest was the strong performer at 88% - enough for a 'guide'. Why? Less prone to overfitting, good on large datasets and non-linear relationships.
 
 ### Summary of Results
-- Able to demonstrate clear winners for each classification
-- Also able to help determine which genres to stay away from for each classification
+- Able to identify where to spend for biggest impact - Seniors > .5 mile from supermarket & in the 75th percentile of the population for that area.
+- Also able to create a model to duplicate identification by locality using population, housing and ethnicity variables.
 
 ### Conclusion
-- **Expand Dataset**: Not a big enough range; 'Top 1000', so data is already skewed
-- **Explore Using Machine Learning**: Would yield better results for this type of exploration; Would provide more probabilistic outcomes vs stopping at EDA; goal would be to achieve a 'score' for each genre, based on a combination of features (vs just comparing against a single mean)
+- **Continue to Add Features**: Time was a factor. I would add more features across all buckets to gain more insight. More can be done with this dataset.
+- **Ask "Why Did This Work?"**: Asking why something worked is just as important as asking why something didn't work. Adding in a logic check helps to reinforce findings with stakeholders.
